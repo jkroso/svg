@@ -92,6 +92,19 @@ Initialize an svg document and attach it to `parent`. Returns a `Group`.
 
   Set the dash length
 
+### Element.style(attr:Object|String, [val])
+
+  set the elements style attributes
+
+```js
+svg(box).style({
+  position: 'absolute',
+  left: 0,
+  top: 0
+})
+svg(box).style('position', 'absolute')
+```
+
 ## License
 
   MIT

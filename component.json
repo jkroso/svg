@@ -8,7 +8,8 @@
   "dependencies": {
     "jkroso/alias-property": "0.1.0",
     "yields/extensible": "0.1.0",
-    "component/domify": "1.0.1"
+    "component/domify": "1.0.1",
+    "component/css": "0.0.2"
   },
   "development": {
     "jkroso/serve": "1.5.1"

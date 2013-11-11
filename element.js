@@ -1,5 +1,6 @@
 
 var extensible = require('extensible')
+var css = require('css')
 
 module.exports = Element
 
@@ -169,6 +170,20 @@ Element.prototype.scale = function(x, y){
   this.transforms.scaleX = x
   this.transforms.scaleY = y != null ? y : x
   return this.setTransform()
+}
+
+/**
+ * set the elements style attributes
+ *
+ * @param {Object|String} attr
+ * @param {Any} val
+ * @return {this}
+ */
+
+Element.prototype.style = function(attr, val){
+  if (typeof attr == 'object') css(this.el, attr)
+  else this.el.style[attr] = val
+  return this
 }
 
 Element.prototype.fill = function(color){

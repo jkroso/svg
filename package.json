@@ -10,7 +10,8 @@
   "dependencies": {
     "extensible": "yields/extensible",
     "domify": "component/domify",
-    "alias-property": "0.1.0"
+    "alias-property": "0.1.0",
+    "css": "component/css"
   },
   "devDependencies": {
     "packin": "*"
