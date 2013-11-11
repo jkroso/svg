@@ -211,4 +211,6 @@ Element.prototype.dash = function(on, off){
   return this
 }
 
-Element.prototype.copy = function(){}
+Element.prototype.copy = function(){
+  return this.el.group.use(this)
+}

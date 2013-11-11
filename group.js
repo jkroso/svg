@@ -71,8 +71,18 @@ Group.prototype.move = function(x, y){
   return this.setTransform()
 }
 
+var id = 0
 Group.prototype.add = function(type){
   var el = document.createElementNS('http://www.w3.org/2000/svg', type)
+  el.setAttribute('id', 'el-' + id++)
   this.el.appendChild(el)
+  el.group = this // TODO: hack
   return el
+}
+
+Group.prototype.use = function(el){
+  var id = '#' + el.attr('id')
+  var use = this.add('use')
+  use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', id)
+  return new Element(use)
 }
