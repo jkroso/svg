@@ -210,3 +210,5 @@ Element.prototype.dash = function(on, off){
   this.el.setAttribute('stroke-dasharray', on + ', ' + off)
   return this
 }
+
+Element.prototype.copy = function(){}

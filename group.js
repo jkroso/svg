@@ -1,4 +1,5 @@
 
+var PolyLine = require('./polyline')
 var Element = require('./element')
 var Ellipse = require('./ellipse')
 var Circle = require('./circle')
@@ -41,6 +42,16 @@ Group.prototype.ellipse = function(width, height, x, y){
 Group.prototype.line = function(x1, y1, x2, y2){
   var el = new Line(this.add('line'))
   if (arguments.length) el.from(x1, y1).to(x2, y2)
+  return el
+}
+
+Group.prototype.polyline = function(){
+  var el = new PolyLine(this.add('polyline'))
+  // overwrite default fill
+  el.fill('none')
+  for (var i = 0; i < arguments.length;) {
+    el.point(arguments[i++], arguments[i++])
+  }
   return el
 }
 
