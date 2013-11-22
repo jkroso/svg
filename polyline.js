@@ -10,12 +10,10 @@ function PolyLine(el){
 Element.extend(PolyLine)
 
 PolyLine.prototype.point = function(x, y){
-	var points = this.el.getAttribute('points')
-	points = points != null
-		? points + ' '
-		: ''
-	this.el.setAttribute('points', points + x + ',' + y)
-	return this
+  var points = this.el.getAttribute('points') || ''
+  if (points) points += ' '
+  this.el.setAttribute('points', points + x + ',' + y)
+  return this
 }
 
 PolyLine.prototype.width = function(n){
