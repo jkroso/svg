@@ -6,6 +6,7 @@ var Circle = require('./circle')
 var Rect = require('./rect')
 var Line = require('./line')
 var Text = require('./text')
+var Path = require('./path')
 
 module.exports = Group
 
@@ -45,6 +46,12 @@ Group.prototype.line = function(x1, y1, x2, y2){
   return el
 }
 
+Group.prototype.path = function(x, y){
+  var el = new Path(this.add('path'))
+  arguments.length && el.move(x, y)
+  return el
+}
+
 Group.prototype.polyline = function(){
   var el = new PolyLine(this.add('polyline'))
   // overwrite default fill
@@ -76,7 +83,7 @@ Group.prototype.add = function(type){
   var el = document.createElementNS('http://www.w3.org/2000/svg', type)
   el.setAttribute('id', 'el-' + id++)
   this.el.appendChild(el)
-  el.group = this // TODO: hack
+  el.group = this // HACK
   return el
 }
 
