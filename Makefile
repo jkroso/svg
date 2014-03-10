@@ -1,13 +1,9 @@
 
 serve: node_modules
-	@node_modules/serve/bin/serve -Sloj
+	@node_modules/serve/bin/serve -Sljop 0
 
-node_modules: component.json package.json
-	@packin install \
-		--meta package.json,component.json,deps.json \
-		--folder node_modules \
-		--executables \
-		--no-retrace
+node_modules: package.json
+	@packin install --meta $< --folder $@
 
 template.js: template.jade
 	@echo "module.exports = '`jade < $<`'" > $@
